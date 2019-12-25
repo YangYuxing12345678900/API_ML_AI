@@ -42,7 +42,7 @@
 需求列表：使用人工智能的加值是否反映到需求列表（核心功能的排序上）且PRD列出明显有可行及可用的API
 
 ## 原型 
-* 附件-[产品原型](http://kelingt.gitee.io/yang_blog)
+* 附件-[**产品原型**](http://kelingt.gitee.io/yang_blog)
 ### 原型1.交互及界面设计
 #### 1. **起始页面**
 
@@ -64,14 +64,14 @@
 #### 产品原型信息架构图
 ![信息架构图](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/信息设计.PNG)
 
-实现的[原型](http://kelingt.gitee.io/yang_blog)
+参考[**产品原型**](http://kelingt.gitee.io/yang_blog)
 
 信息设计：在PRD文件中是否有说明且原型是否有做到：信息设计的某个核心信息或设计使用了人工智能的加值
 ### 原型3.原型文档 5%
 
-[产品原型文档](http://kelingt.gitee.io/yang_blog)
+[**产品原型文档**](http://kelingt.gitee.io/yang_blog)
 
-[产品原型文档元件](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/产品原型文档元件.rp)--下载
+[**产品原型文档元件**](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/产品原型文档元件.rp)--下载
 
 
 原型文档：多少程度上有提供MVP可交互的原型文档，供它人在Github上下载使用
