@@ -62,7 +62,7 @@
 
 ### 原型2.信息设计 5%
 #### 产品原型信息架构图
-![信息架构图]https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/信息设计.PNG
+![信息架构图](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/信息设计.PNG)
 
 实现的[原型](http://kelingt.gitee.io/yang_blog)
 
