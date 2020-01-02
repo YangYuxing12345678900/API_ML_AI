@@ -14,7 +14,7 @@
 快速将语音转文字记录需要的笔记，手写文字实现笔记电子化储存，可支持简单的文本翻译，方便人们的办公与学习
 
 ## 加值宣言 
-本产品至于通过运用相关的人工智能价值，使用户在办公学习记录时达到更加便捷和使用的效果。运用**语音识别api**。摆脱按键操作，通过语音识别直接输入文字，方便笔记记录；同时可根据句意自动纠错、自动断句添加标点，保证文本输入的准确性。**手写文字识别api**，实现对手写文字、读书笔记、课堂笔记等内容的识别，实现对手写文字内容的电子存储；同时，实现对活动签到表、信息登记表、数据统计表等纸质表单内手写文字的识别，满足对纸质表单内信息进行统计整理、数据计算的需求，为办公学习记录保存数据提供更多样的方法。**通用翻译api**，自然语言通用翻译，在急需了解外语语义和转述中文时，提供一个更方便简要的内容翻译途径
+本产品至于通过运用相关的人工智能价值，使用户在办公学习记录时达到更加便捷和使用的效果。运用**语音识别api**。摆脱按键操作，通过语音识别直接输入文字，方便笔记记录；同时可根据句意自动纠错、自动断句添加标点，保证文本输入的准确性。**手写文字识别api**，实现对手写文字、读书笔记、课堂笔记等内容的识别，实现对手写文字内容的电子存储；同时，实现对活动签到表、信息登记表、数据统计表等纸质表单内手写文字的识别，满足对纸质表单内信息进行统计整理、数据计算的需求，为办公学习记录保存数据提供更多样的方法。**文本翻译api**，语言翻译，在急需了解外语语义和转述中文时，提供一个更方便简要的内容翻译途径
 
 ## 核心价值 
 本产品最小可行做到语音信息的快速转换文字信息记录，方便用户在不方便的情况下，快速记录要点信息；手写信息转写与通用翻译为辅助。改产品的宗旨在，让用户能在不方便的短时间内，实现便捷的信息记录。
@@ -25,9 +25,9 @@
 * 通电三：用户需要快速理解某句外文，而不能及时找到相应的工具；或在需要翻译语言给他人理解时
 
 ## 人工智能概率性与用户痛点 
-* 语音识别api：存在进场中文普通话识别准确率达98%，同时支持普通话和略带口音的中文识别、个别方言粤语四川话识别和英文识别。
-* 手写文字识别api：存在识别准确率可达90%以上，支持对图片中的手写中文、手写数字进行检测和识别，且对不断对不规则的手写字体进行识别专项优化
-* 通用翻译api：支持二十多种自然语言互译，但是并不能保证其绝对的准确率
+* 百度语音识别api：存在进场中文普通话识别准确率达98%，同时支持普通话和略带口音的中文识别、个别方言粤语四川话识别和英文识别。
+* 百度手写文字识别api：存在识别准确率可达90%以上，支持对图片中的手写中文、手写数字进行检测和识别，且对不断对不规则的手写字体进行识别专项优化
+* Azure文本翻译api：通过 Translator API 的开放 REST 接口对超过 60 种支持语言的文本进行互译，轻松准确地检测任何文本字符串的语言，以决定需翻译哪个文本且翻译成哪种语言，但翻译结果的准确率没有绝对保障
 
 各项人工智能的相应使用，并不能保证绝对的准确性。语音识别与手写文字识别的正确率高，但是还是会出现细小的错误。当语速过快或语调不正确，会出现识别差错；另外不同的人书写风格不同，过于潦草的字体可能会识别成其他自行相同的自。同时，通用翻译的准备率也不是很稳定，可能也会出现相差很大的语义翻译。
 
@@ -35,9 +35,9 @@
 
 | 需求案例 |优先级|功能api|
 |---|---|---|
-|用户在不方便手记内容信息的情况下，希望快速记录准确要点|重要|百度语音识别api，|
-|用户希望更保险储存手写内容，在需要手动录入|次要|百度手写文字识别api，|
-|用户在急需文本翻译而不能快速找到相应的翻译工具|次要|百度自然语言通用翻译api|
+|用户在不方便手记内容信息的情况下，希望快速记录准确要点|重要|百度语音识别api|
+|用户希望更保险储存手写内容，在需要手动录入|次要|百度手写文字识别api|
+|用户在急需文本翻译而不能快速找到相应的翻译工具|次要|Azure文本翻译api|
 
 需求列表：使用人工智能的加值是否反映到需求列表（核心功能的排序上）且PRD列出明显有可行及可用的API
 
@@ -81,8 +81,9 @@
 口头操作说明：多少程度上在2-3分钟时间限制内，对听众留下了「的确这是个可行丶可用的人工智能加值产品」的印象
 ## API 产品使用关键AI或机器学习之API的输出入展示 15%
 ### API1.使用水平 5%
-* 百度API的token的获取
-```
+#### 百度api
+1. 百度API的token的获取
+```Python
 #第一步先是来请求token
 # access_token 的有效期为 30 天，切记需要每 30 天进行定期更换，或者每次请求都拉取新 token
 
@@ -95,6 +96,86 @@ response = requests.get(host)
 if response:
     print(response.json())
 ```
+- 请求
+  
+  ![token请求代码图片](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/token请求.PNG)
+- 返回
+  ```
+  {'refresh_token': '25.9df19889433fc5001cefb8446d531173.315360000.1893261598.282335-18156003', 'expires_in': 2592000, 'session_key': '9mzdDc636/G2MenMoAEPpCB2U+1QBRaRxlevU0dE5+ihGn59l1Bila0O7kHttDT961Q2Vb8SRpgZoKMHM8xoXto9Yw2DEg==', 'access_token': '24.68b90052b6cf2ba4ae6e6e141b26f43b.2592000.1580493598.282335-18156003', 'scope': 'audio_voice_assistant_get brain_enhanced_asr audio_tts_post public brain_all_scope brain_ocr_handwriting picchain_test_picchain_api_scope wise_adapt lebo_resource_base lightservice_public hetu_basic lightcms_map_poi kaidian_kaidian ApsMisTest_Test权限 vis-classify_flower lpq_开放 cop_helloScope ApsMis_fangdi_permission smartapp_snsapi_base iop_autocar oauth_tp_app smartapp_smart_game_openapi oauth_sessionkey smartapp_swanid_verify smartapp_opensource_openapi smartapp_opensource_recapi fake_face_detect_开放Scope vis-ocr_虚拟人物助理 idl-video_虚拟人物助理', 'session_secret': 'd4c94b69fc180262ffe137a01b1ec293'}
+  ```
+2. 语音识别api测试
+- 代码
+```Python
+import requests
+import json
+import uuid
+import base64
+token = '24.68b90052b6cf2ba4ae6e6e141b26f43b.2592000.1580493598.282335-18156003'
+#token请自行申请
+file = open("fa.wav", "rb").read()
+url = "http://vop.baidu.com/server_api"
+mac_address = uuid.UUID(int=uuid.getnode()).hex[-12:]
+params = {
+    "format": "wav",
+    "lan": "zh",
+    "token": token,
+    "len": len(file),
+    "rate": 16000,
+    "speech": base64.b64encode(file).decode("utf-8"),
+    "cuid": mac_address,
+    "channel": 1,
+}
+headers = {"Content-Type": "application/json"}
+response = requests.post(url, params=json.dumps(params), headers=headers)
+if response:
+    print (response.json())
+```
+- 返回
+```
+{"corpus_no":"6777113310890319637","err_msg":"success.","err_no":0,"result":["我不知道。"],"sn":"561065703321577919653"}
+```
+- 测试详情
+
+|事项|错误码|报错原因|修改调整|备注|
+|---|---|---|---|---|
+|第一次测试|3316|使用音频为m4a格式，错误使用wav格式参数数填写方式|调整参数|-|
+|第二次测试|3302|鉴权失败，请求requests_url输入错误，m4a格式音频的语音识别只有语音识别极速版可实现|修改requests_url|-|
+|第三次测试（尝试多种音频格式，将m4a转mav）|3310|音频文件过大|修剪音频长度|-|
+
+3. 手写文字识别api测试
+- 代码
+ ```Python
+import requests
+import json
+import base64
+url = "https://aip.baidubce.com/rest/2.0/ocr/v1/handwriting"
+file = open("yan.png","rb").read()
+png = base64.b64encode(file)
+params = {"image":png}
+token = '24.68b90052b6cf2ba4ae6e6e141b26f43b.2592000.1580493598.282335-18156003'
+#token请自行申请
+url = url + "?access_token=" + token
+headers = {'content-type': 'application/x-www-form-urlencoded'}
+response = requests.post(url, data=params, headers=headers)
+if response:
+    print (response.json())
+ ```
+- 返回
+```
+{'log_id': 7177952755635660962, 'words_result_num': 6, 'words_result': [{'location': {'width': 368, 'top': 385, 'left': 477, 'height': 66}, 'words': '《演讲的力量》'}, {'location': {'width': 970, 'top': 452, 'left': 395, 'height': 81}, 'words': '任何一个人,只要拥有值得分享的思想,就能'}, {'location': {'width': 1019, 'top': 526, 'left': 335, 'height': 73}, 'words': '发表精彩的演讲,在公共演讲中,唯一真正重要的'}, {'location': {'width': 1025, 'top': 603, 'left': 341, 'height': 69}, 'words': '东西不是自信,不是舞台展示,也不是流利的语言'}, {'location': {'width': 434, 'top': 681, 'left': 349, 'height': 65}, 'words': '而是有价值的思想'}, {'location': {'width': 380, 'top': 740, 'left': 953, 'height': 75}, 'words': '——克里斯·安德森'}]}
+```
+|事项|错误码|报错原因|修改调整|备注|
+|---|---|---|---|---|
+|第一次测试|216101|缺少必要参数|调整参数|-|
+|第二次测试（更换图片格式ipj转png）|-|-|-|无报错正常返回结果|
+
+#### Azure的api
+* 文本翻译api测试
+
+
+
+
+
 
 使用水平：在PRD文件中是否有说明且展示，核心功能所应用的API之输入及输出
 ### API2.使用比较分析 5%
