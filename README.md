@@ -14,7 +14,7 @@
 快速将语音转文字记录需要的笔记，手写文字实现笔记电子化储存，可支持简单的文本翻译，方便人们的办公与学习
 
 ## 加值宣言 
-本产品至于通过运用相关的人工智能价值，使用户在办公学习记录时达到更加便捷和使用的效果。运用**语音识别api**。摆脱按键操作，通过语音识别直接输入文字，方便笔记记录；同时可根据句意自动纠错、自动断句添加标点，保证文本输入的准确性。**手写文字识别api**，实现对手写文字、读书笔记、课堂笔记等内容的识别，实现对手写文字内容的电子存储；同时，实现对活动签到表、信息登记表、数据统计表等纸质表单内手写文字的识别，满足对纸质表单内信息进行统计整理、数据计算的需求，为办公学习记录保存数据提供更多样的方法。**文本翻译api**，语言翻译，在急需了解外语语义和转述中文时，提供一个更方便简要的内容翻译途径
+本产品至于通过运用相关的人工智能价值，使用户在办公学习记录时达到更加便捷和使用的效果。运用**语音识别api**。摆脱按键操作，通过语音识别直接输入文字，方便笔记记录；同时可根据句意自动纠错、自动断句添加标点，保证文本输入的准确性。**手写文字识别api**，实现对手写文字、读书笔记、课堂笔记等内容的识别，实现对手写文字内容的电子存储；同时，实现对活动签到表、信息登记表、数据统计表等纸质表单内手写文字的识别，满足对纸质表单内信息进行统计整理、数据计算的需求，为办公学习记录保存数据提供更多样的方法。**通用翻译api**，语言翻译，在急需了解外语语义和转述中文时，提供一个更方便简要的内容翻译途径
 
 ## 核心价值 
 本产品最小可行做到语音信息的快速转换文字信息记录，方便用户在不方便的情况下，快速记录要点信息；手写信息转写与通用翻译为辅助。改产品的宗旨在，让用户能在不方便的短时间内，实现便捷的信息记录。
@@ -37,7 +37,7 @@
 |---|---|---|
 |用户在不方便手记内容信息的情况下，希望快速记录准确要点|重要|百度语音识别api|
 |用户希望更保险储存手写内容，在需要手动录入|次要|百度手写文字识别api|
-|用户在急需文本翻译而不能快速找到相应的翻译工具|次要|Azure文本翻译api|
+|用户在急需文本翻译而不能快速找到相应的翻译工具|次要|百度通用翻译api、文字识别api（辅助）|
 
 需求列表：使用人工智能的加值是否反映到需求列表（核心功能的排序上）且PRD列出明显有可行及可用的API
 
@@ -103,7 +103,7 @@ if response:
   ```
   {'refresh_token': '25.9df19889433fc5001cefb8446d531173.315360000.1893261598.282335-18156003', 'expires_in': 2592000, 'session_key': '9mzdDc636/G2MenMoAEPpCB2U+1QBRaRxlevU0dE5+ihGn59l1Bila0O7kHttDT961Q2Vb8SRpgZoKMHM8xoXto9Yw2DEg==', 'access_token': '24.68b90052b6cf2ba4ae6e6e141b26f43b.2592000.1580493598.282335-18156003', 'scope': 'audio_voice_assistant_get brain_enhanced_asr audio_tts_post public brain_all_scope brain_ocr_handwriting picchain_test_picchain_api_scope wise_adapt lebo_resource_base lightservice_public hetu_basic lightcms_map_poi kaidian_kaidian ApsMisTest_Test权限 vis-classify_flower lpq_开放 cop_helloScope ApsMis_fangdi_permission smartapp_snsapi_base iop_autocar oauth_tp_app smartapp_smart_game_openapi oauth_sessionkey smartapp_swanid_verify smartapp_opensource_openapi smartapp_opensource_recapi fake_face_detect_开放Scope vis-ocr_虚拟人物助理 idl-video_虚拟人物助理', 'session_secret': 'd4c94b69fc180262ffe137a01b1ec293'}
   ```
-2. 语音识别api测试
+2. 语音识别api测试（核心价值）
 - 代码
 ```Python
 import requests
@@ -164,20 +164,63 @@ if response:
 ```
 {'log_id': 7177952755635660962, 'words_result_num': 6, 'words_result': [{'location': {'width': 368, 'top': 385, 'left': 477, 'height': 66}, 'words': '《演讲的力量》'}, {'location': {'width': 970, 'top': 452, 'left': 395, 'height': 81}, 'words': '任何一个人,只要拥有值得分享的思想,就能'}, {'location': {'width': 1019, 'top': 526, 'left': 335, 'height': 73}, 'words': '发表精彩的演讲,在公共演讲中,唯一真正重要的'}, {'location': {'width': 1025, 'top': 603, 'left': 341, 'height': 69}, 'words': '东西不是自信,不是舞台展示,也不是流利的语言'}, {'location': {'width': 434, 'top': 681, 'left': 349, 'height': 65}, 'words': '而是有价值的思想'}, {'location': {'width': 380, 'top': 740, 'left': 953, 'height': 75}, 'words': '——克里斯·安德森'}]}
 ```
+- 测试详情
+
 |事项|错误码|报错原因|修改调整|备注|
 |---|---|---|---|---|
 |第一次测试|216101|缺少必要参数|调整参数|-|
 |第二次测试（更换图片格式ipj转png）|-|-|-|无报错正常返回结果|
 
-#### Azure的api
-* 文本翻译api测试
+4. 百度通用翻译api测试
+```Python
+import http.client
+import hashlib
+import urllib
+import random
+import json
 
+appid = '2020*******372015'  # 申请自己的appid
+secretKey = 'MluG********KjzT'  # 申请自己的key
 
+httpClient = None
+myurl = '/api/trans/vip/translate'
 
+fromLang = 'auto'   #填入有翻译的橘子的语种，en(英),fra(法)等等
+toLang = 'zh'   #译文语种，不可以填写auto
+salt = random.randint(32768, 65536)# 随机数
+q=open('kkk.txt').read()#输入翻译文件或梯段“q='字段'”
+sign = appid + q + str(salt) + secretKey
+sign = hashlib.md5(sign.encode()).hexdigest()
+myurl = myurl + '?appid=' + appid + '&q=' + urllib.parse.quote(q) + '&from=' + fromLang + '&to=' + toLang + '&salt=' + str(
+salt) + '&sign=' + sign
 
+try:
+    httpClient = http.client.HTTPConnection('api.fanyi.baidu.com')
+    httpClient.request('GET', myurl)
 
+    response = httpClient.getresponse()
+    result_all = response.read().decode("utf-8")
+    result = json.loads(result_all)
 
-使用水平：在PRD文件中是否有说明且展示，核心功能所应用的API之输入及输出
+    print (result)
+
+except Exception as e:
+    print (e)
+finally:
+    if httpClient:
+        httpClient.close()
+```
+- 返回
+```
+{'from': 'en', 'to': 'zh', 'trans_result': [{'src': 'Life is full of confusing and disordering Particular time,a particular location,Do the arranged thing of ten million time in the brain,Step by step ,the life is hard to avoid delicacy and stiffness No enthusiasm forever,No unexpected happening of surprising and pleasing So,only silently ask myself in mind Next happiness,when will come?', 'dst': '生活中充满了混乱无序的特定时间、特定地点，在大脑中做着千万次的安排，一步一步，生活中难以避免的细腻和僵硬永远没有热情，所以没有意外惊喜和愉悦的发生，只有默默地问自己下一个幸福，什么时候会来？'}]}
+```
+- 测试详情
+
+|事项|错误码|报错原因|修改调整|备注|
+|---|---|---|---|---|
+|第一次测试（字段测试‘apple’）|-|-|-|无报错正常返回结果|
+|第二次测试（文件测试‘kkk.txt’）|-|-|-|无报错正常返回结果|
+
 ### API2.使用比较分析 5%
 
 使用比较分析：在PRD文件中是否有说明且提供连结证据，所使用的API是查找过最适用的（主要竞争者无或比较次），如考量其成熟度丶性价比丶等等
