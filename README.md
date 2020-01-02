@@ -60,14 +60,14 @@
 
 ![手写](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/手写.PNG)
 
-### 原型2.信息设计 5%
+### 原型2.信息设计
 #### 产品原型信息架构图
 ![信息架构图](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/信息设计.PNG)
 
 参考[**产品原型**](http://kelingt.gitee.io/yang_blog)
 
 信息设计：在PRD文件中是否有说明且原型是否有做到：信息设计的某个核心信息或设计使用了人工智能的加值
-### 原型3.原型文档 5%
+### 原型3.原型文档
 
 [**产品原型文档**](http://kelingt.gitee.io/yang_blog)
 
@@ -75,12 +75,12 @@
 
 
 原型文档：多少程度上有提供MVP可交互的原型文档，供它人在Github上下载使用
-### 原型4.口头操作说明 5%
+### 原型4.口头操作说明
 各位好，今天要介绍的是一款便捷高效的办公型人工智能产品————**智能便签**。首先进入页面，选择新建**语音输入**项，可长按输入语音，通过语音识别快速编辑文本笔记，不仅方便特殊场合的要点快速记录，同时也方便各位记录某时刻的突发奇想。另外还有一项功能，**手写文字转录**，选择这一项功能，选择拍照和图片输入，可转录大家随手在纸张上书写的文字笔记，将书写的笔记电子化，方便资料的系统化储存。最后，它还有一项**翻译**功能，选择翻译工具，输入需要翻译的文本或文件，通过机器翻译这一项人工智能，帮助大家在紧要时的外文翻译。以上便是此产品的操作简况，欢迎各位下载并使用此产品，谢谢！
 
 口头操作说明：多少程度上在2-3分钟时间限制内，对听众留下了「的确这是个可行丶可用的人工智能加值产品」的印象
-## API 产品使用关键AI或机器学习之API的输出入展示 15%
-### API1.使用水平 5%
+## API 产品使用关键AI或机器学习之API的输出入展示
+### API1.使用水平
 #### 百度api
 1. 百度API的token的获取
 ```Python
@@ -106,25 +106,19 @@ if response:
 2. 语音识别api测试（核心价值）
 - 代码
 ```Python
-import requests
-import json
-import uuid
-import base64
-token = '24.68b90052b6cf2ba4ae6e6e141b26f43b.2592000.1580493598.282335-18156003'
-#token请自行申请
-file = open("fa.wav", "rb").read()
+import requests,json,uuid,base64
+token = '24.68b90052b6cf2ba4ae6e6e141b26f43b.2592000.1580493598.282335-18156003'#token请自行申请
+file = open("fa.wav", "rb").read()#音频文件
 url = "http://vop.baidu.com/server_api"
 mac_address = uuid.UUID(int=uuid.getnode()).hex[-12:]
-params = {
-    "format": "wav",
+params = {"format": "wav",
     "lan": "zh",
     "token": token,
     "len": len(file),
     "rate": 16000,
     "speech": base64.b64encode(file).decode("utf-8"),
     "cuid": mac_address,
-    "channel": 1,
-}
+    "channel": 1}
 headers = {"Content-Type": "application/json"}
 response = requests.post(url, params=json.dumps(params), headers=headers)
 if response:
@@ -145,15 +139,12 @@ if response:
 3. 手写文字识别api测试
 - 代码
  ```Python
-import requests
-import json
-import base64
+import requests,json,base64
 url = "https://aip.baidubce.com/rest/2.0/ocr/v1/handwriting"
-file = open("yan.png","rb").read()
+file = open("yan.png","rb").read()#图片
 png = base64.b64encode(file)
 params = {"image":png}
-token = '24.68b90052b6cf2ba4ae6e6e141b26f43b.2592000.1580493598.282335-18156003'
-#token请自行申请
+token = '24.68b90052b6cf2ba4ae6e6e141b26f43b.2592000.1580493598.282335-18156003'#token请自行申请
 url = url + "?access_token=" + token
 headers = {'content-type': 'application/x-www-form-urlencoded'}
 response = requests.post(url, data=params, headers=headers)
@@ -173,37 +164,25 @@ if response:
 
 4. 百度通用翻译api测试
 ```Python
-import http.client
-import hashlib
-import urllib
-import random
-import json
-
+import http.client,hashlib, urllib,random,json
 appid = '2020*******372015'  # 申请自己的appid
 secretKey = 'MluG********KjzT'  # 申请自己的key
-
 httpClient = None
 myurl = '/api/trans/vip/translate'
-
-fromLang = 'auto'   #填入有翻译的橘子的语种，en(英),fra(法)等等
+fromLang = 'auto'   #填入有翻译的句子的语种，en(英),fra(法)等等
 toLang = 'zh'   #译文语种，不可以填写auto
 salt = random.randint(32768, 65536)# 随机数
 q=open('kkk.txt').read()#输入翻译文件或梯段“q='字段'”
 sign = appid + q + str(salt) + secretKey
 sign = hashlib.md5(sign.encode()).hexdigest()
-myurl = myurl + '?appid=' + appid + '&q=' + urllib.parse.quote(q) + '&from=' + fromLang + '&to=' + toLang + '&salt=' + str(
-salt) + '&sign=' + sign
-
+myurl = myurl + '?appid=' + appid + '&q=' + urllib.parse.quote(q) + '&from=' + fromLang + '&to=' + toLang + '&salt=' + str(salt) + '&sign=' + sign
 try:
     httpClient = http.client.HTTPConnection('api.fanyi.baidu.com')
     httpClient.request('GET', myurl)
-
     response = httpClient.getresponse()
     result_all = response.read().decode("utf-8")
     result = json.loads(result_all)
-
     print (result)
-
 except Exception as e:
     print (e)
 finally:
@@ -221,7 +200,53 @@ finally:
 |第一次测试（字段测试‘apple’）|-|-|-|无报错正常返回结果|
 |第二次测试（文件测试‘kkk.txt’）|-|-|-|无报错正常返回结果|
 
-### API2.使用比较分析 5%
+4. 百度文字识别api测试
+- 代码
+```Python
+import requests,json,base64
+url = "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic"
+file = open("en.png","rb").read()
+png = base64.b64encode(file)
+params = {"image":png}#image和url各选一个
+token = '24.48afc02361999d06bfdc2b067dc5a560.2592000.1580545631.282335-18160921'
+url = url + "?access_token=" + token
+headers = {'content-type': 'application/x-www-form-urlencoded'}
+response = requests.post(url, data=params, headers=headers)
+if response:
+    print (response.json())
+```
+- 返回
+```
+{'log_id': 8411515331957384194, 'words_result_num': 11, 'words_result': [{'words': 'ACKNOWLEDGEMENTS'}, {'words': 'We would like to thank all the designers and'}, {'words': 'contributors who have been involved in the'}, {'words': 'production of this book; their contributions'}, {'words': 'have been indispensable to its creation. We'}, {'words': 'would also like to express our gratitude to all'}, {'words': 'the producers for their invaluable opinions'}, {'words': 'and assistance throughout this project And to'}, {'words': 'the many others whose names are not credited'}, {'words': 'but have made specific input in this book, we'}, {'words': 'thank you for your continuous support'}]}
+```
+- 测试详情
+
+|事项|错误码|报错原因|修改调整|备注|
+|---|---|---|---|---|
+|图片内文字识别（“en.png”）|-|-|-|无报错正常返回结果|
+
+### API2.使用比较分析
+#### 技术成熟度
+
+|事项|分类|比较|成熟度|备注|
+|:---:|:---|---|---|---|
+|语音识别api|百度|采样率固定16000，仅支持单声道，输出语句可分标点符号，支持普通话、英语、少数方言和远场普通话。格式支持：pcm（不压缩）、wav（不压缩，pcm编码）、amr（压缩格式）、m4a（压缩格式，仅支持极速版）。但实际操作使用语句转化的准确率并不是很高|中|[技术文档](https://ai.baidu.com/ai-doc/SPEECH/pk38lxi60)|
+||科大讯飞|声道：单声道&多声道；支持格式：wav,flac,opus,m4a,mp3；支持语种：中文普通话、英语；采样率：8KHz,16KHz；采样精度：8bits,16bits。测试使用时同一段录音相对准确率高|高|[技术文档](https://www.xfyun.cn/services/lfasr)|
+|手写文字识别api|百度||||
+|机器翻译api|||||
+|文字识别api|||||
+
+
+
+#### 成本性价比
+
+
+
+
+
+
+
+
 
 使用比较分析：在PRD文件中是否有说明且提供连结证据，所使用的API是查找过最适用的（主要竞争者无或比较次），如考量其成熟度丶性价比丶等等
 ### API3.使用后风险报告 5%
