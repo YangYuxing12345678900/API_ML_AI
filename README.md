@@ -226,19 +226,34 @@ if response:
 |图片内文字识别（“en.png”）|-|-|-|无报错正常返回结果|
 
 ### API2.使用比较分析
-#### 技术成熟度
+#### 技术
 
-|事项|分类|比较|成熟度|备注|
+|API|分类|比较|成熟度|准确率|使用难度|备注|
+|:---:|:---|---|---|---|---|---|
+|语音识别|百度|采样率固定16000,仅单声道,支持普通话/英语/少数方言/远场普通话;格式:pcm(不压缩)/wav(不压缩,pcm编码)/amr(压缩)/m4a(压缩,仅极速版)|高|中|低|[文档](https://ai.baidu.com/ai-doc/SPEECH/pk38lxi60)|
+||科大讯飞|可单声&多声道;格式:wav,flac,opus,m4a,mp3;支持普通话/英语;采样率:8KHz/16KHz;精度:8bits,16bits|高|高|高|[文档](https://www.xfyun.cn/services/lfasr)|
+|手写文字识别|百度|支持对图片中手写中文/数字检测识别,针对不规则的手写字体进行专项优化,识别准确率可达90%以上|高|高|低|[文档](https://ai.baidu.com/ai-doc/OCR/hk3h7y2qq)|
+||科大讯飞|在识别上和百度的特性基本相同,知识百度的功能更广,可支持手画表单的识别|中|高|低|申请账户付费才可查看文档|
+|机器翻译|百度|支持28种语言互译|高|高|低|[文档](http://api.fanyi.baidu.com/api/trans/product/apidoc)|
+||阿里|要用于英语和法语,英语和西班牙语的互译|低|低|低|[文档](https://help.aliyun.com/document_detail/125066.html?spm=a2c4g.11186623.6.543.496121218Q2CM8)|
+|文字识别|百度|可支持语种混合识别,能识别所有常用字和大部分生僻字|高|高|低|[文档](https://ai.baidu.com/ai-doc/OCR/zk3h7xz52)|
+||阿里|响应快,准确率上没有百度高|中|中|低|申请账户付费才可查看文档|
+
+#### 成本
+
+|API|分类|比较|性价比|备注|
 |:---:|:---|---|---|---|
-|语音识别api|百度|采样率固定16000，仅支持单声道，输出语句可分标点符号，支持普通话、英语、少数方言和远场普通话。格式支持：pcm（不压缩）、wav（不压缩，pcm编码）、amr（压缩格式）、m4a（压缩格式，仅支持极速版）。但实际操作使用语句转化的准确率并不是很高|中|[技术文档](https://ai.baidu.com/ai-doc/SPEECH/pk38lxi60)|
-||科大讯飞|声道：单声道&多声道；支持格式：wav,flac,opus,m4a,mp3；支持语种：中文普通话、英语；采样率：8KHz,16KHz；采样精度：8bits,16bits。测试使用时同一段录音相对准确率高|高|[技术文档](https://www.xfyun.cn/services/lfasr)|
-|手写文字识别api|百度||||
-|机器翻译api|||||
-|文字识别api|||||
+|语音识别|百度|![标准版收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/b_yysb.PNG)|高|[详情](https://ai.baidu.com/ai-doc/SPEECH/Jk38lxn2j)|
+||科大讯飞|![收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/kf_yysb.PNG)|低|[详情](https://www.xfyun.cn/services/lfasr)|
+|手写文字识别|百度|![收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/b_sxwzsb.PNG)|高|[详情](https://ai.baidu.com/ai-doc/OCR/Ek3h7xvq7)|
+||科大讯飞|![收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/kf_sxwzsb.PNG)|低|[详情](https://www.xfyun.cn/services/wordRecg)|
+|机器翻译|百度|![收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/b_fy.PNG)|高|在百度翻译平台申请服务才可查看收费标准|
+||阿里|![收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/a_fy.PNG)|中|[详情](https://help.aliyun.com/document_detail/96389.html?spm=a2c4g.11186623.6.572.4f7f4bc7SSWj3h)|
+|文字识别|百度|![最普通版本收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/bwzsb.PNG)|高|[详情](https://ai.baidu.com/ai-doc/OCR/zk3h7xz52)|
+||阿里|![收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/a_wzsb.PNG)|低|[详情](https://ai.aliyun.com/ocr/general?spm=5176.12127803.1238494.6.4b756f87Ec49vL)|
 
-
-
-#### 成本性价比
+#### 结论
+根据各项分析，从技术综合和成本花费上，最后百度的各项api产品更适合“智能便签app”的功能开发，在最大满足技术需求的同时，保证成本保证成本的消耗不会很高。
 
 
 
