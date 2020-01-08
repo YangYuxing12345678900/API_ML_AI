@@ -248,7 +248,7 @@ if response:
 ||科大讯飞|![收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/kf_sxwzsb.PNG)|低|[详情](https://www.xfyun.cn/services/wordRecg)|
 |机器翻译|百度|![收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/b_fy.PNG)|高|在百度翻译平台申请服务才可查看收费标准|
 ||阿里|![收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/a_fy.PNG)|中|[详情](https://help.aliyun.com/document_detail/96389.html?spm=a2c4g.11186623.6.572.4f7f4bc7SSWj3h)|
-|文字识别|百度|![最普通版本收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/bwzsb.PNG)|高|[详情](https://ai.baidu.com/ai-doc/OCR/zk3h7xz52)|
+|文字识别|百度|![最普通版本收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/bwzsb.PNG)|高|[详情](https://ai.baidu.com/ai-doc/OCR/9k3h7xuv6)|
 ||阿里|![收费表](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/a_wzsb.PNG)|低|[详情](https://ai.aliyun.com/ocr/general?spm=5176.12127803.1238494.6.4b756f87Ec49vL)|
 
 #### 结论
@@ -256,12 +256,12 @@ if response:
 
 ### API3.使用后风险报告 
 
-|API类别|市场竞争程度|输入输出限制|定价|可代替程序库|
+|API类别|市场竞争程度|输入输出限制|定价|
 |:---:|:---|:---|:---|:---|
-|语音识别|   |   |   |   |
-|手写文字识别||   |   |   |
-|机器翻译|   |   |   |   |
-|文本识别|   |   |   |   |
+|语音识别|科大讯飞较之百度技术承受度上高一些|百度识别的录音文件时常不超60s，小于4M，默认2-10QPS|标准版不限免费额度，极速版每个账号可免费调用5万次，极速版开通付费后为50QPS。[详细价格表](https://ai.baidu.com/ai-doc/SPEECH/Jk38lxn2j)|
+|手写文字识别|相比科大讯飞百度在此技术层面上更有研究|手写文字不能过于潦草，否则将识别错误|免费额度50次/天，免费额度用尽后按照如下价格进行计费。[详细价格表单](https://ai.baidu.com/ai-doc/OCR/Ek3h7xvq7)|
+|机器翻译|在市面上，百度在此方面的合作商不少，诸如一些教育类的软件如作业帮、沪江小D等，阿里的机器翻译多用于电商行业，在办公办公领域没有百度翻译的成熟|文字可直接识别翻译，图片还不能做到识别，所以需要文字识别为辅助。且不能超出可识别的语库|普通版免费额度5万次/天，超出可开通按量阶梯后付费，按次计费。[详细价格表单](https://ai.baidu.com/ai-doc/OCR/9k3h7xuv6)|
+
 
 
 使用后风险报告：在PRD文件中是否有说明且提供连结证据，所使用的API类别的现在及未来发展性，如API市场竞争程度丶输入输出限制丶定价丶及可替代的程序库（改用自己开发的代码及数据库而不用API）等等
