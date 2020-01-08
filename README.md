@@ -3,7 +3,7 @@
 | 发布 | 2019年12月 |
 |:----:|:----|
 | 产品 | 智能便签app |
-| 项目状态 | 进行中 |
+| 项目状态 | 完成 |
 | 负责人 | 杨玉杏 |
 | 设计师 | 杨玉杏 |
 | 开发 | 杨玉杏 |
@@ -62,7 +62,7 @@
 
 ### 原型2.信息设计
 #### 产品原型信息架构图
-![信息架构图](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/信息设计.PNG)
+![信息架构图](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/img/信息架构图.PNG)
 
 参考[**产品原型**](http://kelingt.gitee.io/yang_blog)
 
@@ -264,7 +264,6 @@ if response:
 
 
 
-使用后风险报告：在PRD文件中是否有说明且提供连结证据，所使用的API类别的现在及未来发展性，如API市场竞争程度丶输入输出限制丶定价丶及可替代的程序库（改用自己开发的代码及数据库而不用API）等等
 ### API4.加分项 
 - 语音识别api
 - 手写文字识别api
