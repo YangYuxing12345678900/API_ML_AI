@@ -1,5 +1,7 @@
 # 智能便签APP
 
+[20x20ppt](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/20x20ppt.pptx)
+
 | 发布 | 2019年12月 |
 |:----:|:----|
 | 产品 | 智能便签app |
