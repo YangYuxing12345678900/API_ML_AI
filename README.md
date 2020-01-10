@@ -1,6 +1,7 @@
 # 智能便签APP
 
 [20x20ppt](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/20x20ppt.pptx)
+[录屏](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/EV~2020.01.10~15.1809_3.mp4)
 
 | 发布 | 2019年12月 |
 |:----:|:----|
