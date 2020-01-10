@@ -80,6 +80,7 @@
 
 口头操作说明：多少程度上在2-3分钟时间限制内，对听众留下了「的确这是个可行丶可用的人工智能加值产品」的印象
 ## API 产品使用关键AI或机器学习之API的输出入展示
+### [API测试使用素材](https://github.com/YangYuxing12345678900/API_ML_AI/blob/master/测试材料.zip)
 ### API1.使用水平
 1. 百度API的token的获取
 ```Python
